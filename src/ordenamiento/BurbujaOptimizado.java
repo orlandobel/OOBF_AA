@@ -42,7 +42,7 @@ public class BurbujaOptimizado implements AlgoritmoOrdenamiento, Runnable {
 
     @Override
     public double getTt() {
-        return this.tt;
+        return tt;
     }
 
     @Override

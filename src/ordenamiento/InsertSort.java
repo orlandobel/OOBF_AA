@@ -33,8 +33,8 @@ public class InsertSort implements AlgoritmoOrdenamiento, Runnable {
     @Override
     public void ordenarDatos() {
         if(this.thread) {
-            Thread hilo = new Thread();
-            hilo.run();
+            Thread hilo = new Thread(this);
+            hilo.start();
         } else {
             run();
         }
@@ -42,7 +42,7 @@ public class InsertSort implements AlgoritmoOrdenamiento, Runnable {
 
     @Override
     public double getTt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return tt;
     }
 
     @Override

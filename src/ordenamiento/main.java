@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class main {
     
     public static void main(String[] args) {
-        Burbuja b = new Burbuja();
-        BurbujaOptimizado b1 = new BurbujaOptimizado();
-        InsertSort is = new InsertSort();
+        Burbuja b = new Burbuja(true);
+        BurbujaOptimizado b1 = new BurbujaOptimizado(true);
+        InsertSort is = new InsertSort(true);
         
         ArrayList<AlgoritmoOrdenamiento> lista = new ArrayList<>();
         lista.add(b);

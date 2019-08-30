@@ -34,6 +34,7 @@ public class Manager {
             for(int a=0;a<this.metodos.size();a++) {
                 AlgoritmoOrdenamiento aux = this.metodos.get(a);
                 aux.definirDatos(datos.clone());
+                aux.ordenarDatos();
                 tiemposTotales.get(a)[p]=aux.getTt();
             }
             System.out.println(p);
@@ -54,6 +55,7 @@ public class Manager {
         //Recorremos la lista de algoritmos
         for(AlgoritmoOrdenamiento a:this.metodos) {
             a.definirDatos(datos.clone());
+            a.ordenarDatos();
             tiempos[p] = a.getTt();
             System.out.println("tiempos: "+tiempos[p]);
             p++;
