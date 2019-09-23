@@ -17,14 +17,18 @@ public class main {
         Burbuja b = new Burbuja(true);
         BurbujaOptimizado b1 = new BurbujaOptimizado(true);
         InsertSort is = new InsertSort(true);
+        MergeSort ms = new MergeSort(true);
+        QuickSort qs = new QuickSort(true);
         
         ArrayList<AlgoritmoOrdenamiento> lista = new ArrayList<>();
-        lista.add(b);
-        lista.add(b1);
-        lista.add(is);
+        //lista.add(b);
+        //lista.add(b1);
+        //lista.add(is);
+        lista .add(ms);
+        lista.add(qs);
         
         Manager m = new Manager(lista);
-        m.ejecutarPrueba(2500, 11, 100, true);
+        m.ejecutarPrueba(40000, 4, 100, true);
     }
     
 }
