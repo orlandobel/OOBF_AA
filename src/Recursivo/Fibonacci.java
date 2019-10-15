@@ -5,31 +5,38 @@
  */
 package Recursivo;
 
+import java.util.Hashtable;
+
 /**
  *
  * @author Odi
  */
 public class Fibonacci {
+    
+    double tt;
 
     public Fibonacci() {
         
     }
     
-    public int fib(int n) {
+    public int fibonacciRecursivo(int n) {
+        
         if(n>=0) {
             if(n==0 || n==1) {
                 return 1;
             }
         
-            return fib(n-1)+fib(n-2);
+            return fibonacciRecursivo(n-1)+fibonacciRecursivo(n-2);
         }
         return 0;
     }
     
-    public int fibIt(int n){ 
+    public int fibonacciIterativo(int n){ 
         int i = 0;
         int j = 1;
         int aux = 0;
+        
+        double ti = System.currentTimeMillis();
         
         for(int k=1;k<=n;k++) {
             aux = i+j;
@@ -37,6 +44,26 @@ public class Fibonacci {
             j=aux;
         }
         
+        double tf = System.currentTimeMillis();
+        
+        this.tt = tf - ti;
+        
         return aux;
+    }
+    
+    public int empezarRecursivo(int n) {
+        double ti = System.currentTimeMillis();
+        
+        int aux = this.fibonacciRecursivo(n);
+        
+        double tf = System.currentTimeMillis();
+        
+        this.tt = tf - ti;
+        
+        return aux;
+    }
+    
+    public double getTt() {
+        return this.tt;
     }
 }
