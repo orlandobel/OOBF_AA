@@ -44,14 +44,14 @@ public class Mochila {
     
     public void buscarSolucion(){
         
-               // calculamos la matriz de beneficios
-       for (int i=1;i <= this.items.size();i++)
-           for(int w=0; w<= this._W;w++){
-           // verificamos si el item puede ser parte de la solucion
-               if  (this.items.get(i-1).getPeso()<= w){
+        // calculamos la matriz de beneficios
+        for (int i=1;i <= this.items.size();i++)
+            for(int w=0; w<= this._W;w++){
+            // verificamos si el item puede ser parte de la solucion
+                if  (this.items.get(i-1).getPeso()<= w){
                
                 if ((this.items.get(i-1).getValor()+
-                        this.mBeneficios[i-1][w-this.items.get(i-1).getPeso()])
+                    this.mBeneficios[i-1][w-this.items.get(i-1).getPeso()])
                         >this.mBeneficios[i-1][w]) {
                    
                     this.mBeneficios[i][w] = this.items.get(i-1).getValor()+
@@ -68,30 +68,30 @@ public class Mochila {
             }
            
         }
-       this.maxBenefit = (int)this.mBeneficios[items.size()][_W];
-       this.itemsSolucion = new ArrayList<>();
-       // calcular los elementos utilizados para _W
+        this.maxBenefit = (int)this.mBeneficios[items.size()][_W];
+        this.itemsSolucion = new ArrayList<>();
+        // calcular los elementos utilizados para _W
        
-       int i = this.items.size();
-       int j = this._W;
+        int i = this.items.size();
+        int j = this._W;
 
-       while (i > 0 && j > 0){
-           double val = this.mBeneficios[i][j];
-          if( val != this.mBeneficios[i-1][j]){
-              this.itemsSolucion.add(this.items.get(i-1));
-              // imprimir el articulo
-              String aux =this.items.get(i-1).toString();
-              System.out.println(aux);
-              i--;
-              j = j - this.items.get(i).getPeso();
-          } else {
-            i--;
-          }
+        while (i > 0 && j > 0){
+            double val = this.mBeneficios[i][j];
+            if( val != this.mBeneficios[i-1][j]){
+                this.itemsSolucion.add(this.items.get(i-1));
+                // imprimir el articulo
+                String aux =this.items.get(i-1).toString();
+                System.out.println(aux);
+                i--;
+                j = j - this.items.get(i).getPeso();
+            } else {
+                i--;
+            }
                    
-       }       
+        }       
            
-       System.out.println();
-        }
+        System.out.println();
+    }
 
     
     public void guardar() {

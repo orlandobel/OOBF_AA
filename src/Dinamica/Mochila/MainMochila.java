@@ -13,8 +13,8 @@ public class MainMochila {
     public static void main(String[] args) {
         LeerMochila.leerDatos();
         
-        Mochila m = new Mochila(LeerMochila.instancias, 17);
-        
+        Mochila m = new Mochila(LeerMochila.instancias, 8);
+        m.buscarSolucion();
         m.guardar();
     }
 }
