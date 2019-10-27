@@ -23,6 +23,7 @@ public class caballo {
     
     private int[][] tablero;
     private int[] inicio;
+    private String camino;
     
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m"; 
@@ -47,12 +48,12 @@ public class caballo {
     }
     
     public void buscar() {
+        this.camino = "";
         int[] sig = inicio;
-        int[] saux = sig;
         int it = 0;
         
         while(sig[0] != -1 && sig[1] != -1) {
-            saux = sig;
+            camino += "("+sig[0]+","+sig[1]+")";
 //            System.out.println("-------------- iteracion "+it+" --------------");
             int x = sig[0];
             int y = sig[1];
@@ -195,6 +196,10 @@ public class caballo {
     
     public void setInicio(int[] inicio) {
         this.inicio = inicio;
+    }
+    
+    public String getCamino() {
+        return this.camino;
     }
 
     @Override
