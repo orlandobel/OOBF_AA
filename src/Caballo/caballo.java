@@ -50,7 +50,7 @@ public class caballo {
     public void buscar() {
         this.camino = "";
         int[] sig = inicio;
-        int it = 0;
+        int it = 1;
         
         while(sig[0] != -1 && sig[1] != -1) {
             camino += "("+sig[0]+","+sig[1]+")";

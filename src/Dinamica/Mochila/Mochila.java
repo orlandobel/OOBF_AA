@@ -18,11 +18,12 @@ public class Mochila {
     private double[][] mBeneficios;
     private int _W;
     private int maxBenefit;
+    private String solucion;
 
     public Mochila(ArrayList<Item> items, int _W) {
-        
         this.items = items;
         this._W = _W;
+        this.solucion = "";
         construirMatrizBeneficios();
 
     }
@@ -45,7 +46,7 @@ public class Mochila {
     public void buscarSolucion(){
         
         // calculamos la matriz de beneficios
-        for (int i=1;i <= this.items.size();i++)
+        for (int i=1;i <= this.items.size();i++) {
             for(int w=0; w<= this._W;w++){
             // verificamos si el item puede ser parte de la solucion
                 if  (this.items.get(i-1).getPeso()<= w){
@@ -63,12 +64,14 @@ public class Mochila {
                    
                 }
                
-            } else {
-               this.mBeneficios[i][w] = this.mBeneficios[i-1][w];
-            }
+                } else {
+                   this.mBeneficios[i][w] = this.mBeneficios[i-1][w];
+                }
            
+            }  
         }
         this.maxBenefit = (int)this.mBeneficios[items.size()][_W];
+        
         this.itemsSolucion = new ArrayList<>();
         // calcular los elementos utilizados para _W
        
@@ -80,8 +83,13 @@ public class Mochila {
             if( val != this.mBeneficios[i-1][j]){
                 this.itemsSolucion.add(this.items.get(i-1));
                 // imprimir el articulo
-                String aux =this.items.get(i-1).toString();
-                System.out.println(aux);
+                String aux = this.items.get(i-1).getValor()+"";
+                if(i == this.items.size() && j == _W)
+                    this.solucion += aux;
+                else
+                    this.solucion += "-"+aux;
+                
+                //System.out.println(aux);
                 i--;
                 j = j - this.items.get(i).getPeso();
             } else {
@@ -90,11 +98,10 @@ public class Mochila {
                    
         }       
            
-        System.out.println();
     }
 
     
-    public void guardar() {
+    /*public void guardar() {
         File f = new File("mochila.txt");
         String aux = "";
         
@@ -124,5 +131,39 @@ public class Mochila {
         }
         
         System.out.println(aux);
+    }*/
+    
+    public String getSolucion() {
+        return this.solucion;
     }
+    
+    public String getItems() {
+        String itm =  "|Benefcio|    Peso|\n";
+        for(int i=0;i<this.items.size();i++) {
+            String auxB = items.get(i).getValor()+"";
+            String auxP = items.get(i).getPeso()+"";
+            itm += "|"+String.format("%8s", auxB)+"|"+String.format("%8s", auxP)+"|";
+            itm += "\n";
+        }
+        
+        return itm;
+    }
+
+    @Override
+    public String toString() {
+        String m = "";
+        
+        for(int i=0;i<this.mBeneficios.length;i++) {
+            m += "|";
+            for(int j=0;j<this.mBeneficios[0].length;j++) {
+                String aux = this.mBeneficios[i][j]+"";
+                m += String.format("%6s", aux)+"|";
+            }
+            m += "\n";
+        }
+        
+        return m;
+    }
+    
+    
 }

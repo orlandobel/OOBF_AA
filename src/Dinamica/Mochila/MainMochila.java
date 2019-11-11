@@ -15,6 +15,9 @@ public class MainMochila {
         
         Mochila m = new Mochila(LeerMochila.instancias, 8);
         m.buscarSolucion();
-        m.guardar();
+        System.out.println("\n"+m.toString());
+        System.out.println("\n"+m.getItems());
+        System.out.println("\n"+m.getSolucion());
+        //m.guardar();
     }
 }

@@ -11,12 +11,14 @@ package Caballo;
  */
 public class CaballoMain {
     public static void main(String[] args) {
+        int t = 9;
+//        int[] inicio = {1,6};
+//        caballo c = new caballo(inicio,t);
+//        c.buscar();
+//        System.out.println(c.getCamino());
+        
         int[] inicio = new int[2];
-        //int[] inicio = {1,6};
-        int t = 5;
         caballo c = new caballo(t);
-        //c.buscar();
-        //System.out.println(c.getCamino());
         for(int i=0;i<t;i++) {
             inicio[0] = i;
             for(int j=0;j<t;j++) {

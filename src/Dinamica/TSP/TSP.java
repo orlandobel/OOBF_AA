@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dinamica;
+package Dinamica.TSP;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,6 @@ public class TSP {
     
     private int[][] matriz;
     private int maux[][];
-    private String[] nombres;
     private int ciudades[];
     
     private ArrayList<Integer> distancias;
